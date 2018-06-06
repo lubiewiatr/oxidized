@@ -12,10 +12,10 @@ class TPLink < Oxidized::Model
 
   # send carriage return because \n with the command is not enough
   # checks if line ends with prompt >,# or \r,\nm otherwise send \r
-  expect /[^>#\r\n]$/ do |data, re|
-    send "\r"
-    data.sub re, ''
-  end
+  #expect /[^>#\r\n]$/ do |data, re|
+  #  send "\r"
+  #  data.sub re, ''
+  #end
 
   cmd :all do |cfg|
     # normalize linefeeds
@@ -41,7 +41,7 @@ class TPLink < Oxidized::Model
   end
 
   cfg :telnet, :ssh do
-    username /^User ?[nN]ame:/
+    username /^User:/
     password /^\r?Password:/
   end
 
