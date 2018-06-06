@@ -41,7 +41,7 @@ class TPLink < Oxidized::Model
   end
 
   cfg :telnet, :ssh do
-    username /^User:/
+    username /^User( ?[nN]ame)?:/
     password /^\r?Password:/
   end
 
