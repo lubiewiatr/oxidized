@@ -46,9 +46,9 @@ class TPLink < Oxidized::Model
   end
 
   cfg :telnet, :ssh do
-    if vars :enable
       post_login do
-        send "enable\r"
+      send "enable\r"
+      if vars :enable
         cmd vars(:enable)
       end
     end
